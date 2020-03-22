@@ -1,3 +1,28 @@
 <!--pages/home/home.wxml-->
 <text class='title'>hello world</text>
 <button size='mini'>按钮</button>
+
+<!-- 数据列表展示 -->
+<view wx:for='{{ students }}' wx:key='index'>
+{{ index }}--{{ item.name }}--{{ item.age }}--{{ item.sex }}--{{ item.love }}
+</view>
+
+<!-- 数量增加减少 -->
+<view>数量显示为：{{ counter }}</view>
+<button size='mini' bindtap='increment'>+</button>
+<button size='mini' bindtap='decrement'>-</button>
+<!-- 方法二：使用按钮获取用户信息 -->
+<button size='mini' 
+        bindgetuserinfo="handleGetUserInfo" 
+        open-type="getUserInfo">
+        获取用户信息权限
+</button>
+
+<!-- 方法三：使用open-data组件来获取用户信息 -->
+<open-data type='userNickName'></open-data>
+<!-- <open-data type='userAvatarUrl'></open-data> -->
+<open-data type='userCity'></open-data>
+<view>{{message}} {{name}}</view>
+<button bindtap="onClick">点击更改全局的数据</button>
+
+<view wx:for='{{ list }}' wx:key='index'>数量显示为：{{ item.title }}</view>
